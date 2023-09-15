@@ -42,6 +42,24 @@ export class ReportFiltersComponent {
   }
 
   aplicarFiltros() {
+    this.filterData.initial = false;
+    console.log(this.filterData);
+    const filteredData: Observable<PeriodicElement[]> =
+      this.dataService.getDadosFiltrados(this.filterData);
+    console.log("ElementsFiltered: " + filteredData);
+    filteredData.subscribe((elements: PeriodicElement[]) => {
+      console.log("ElementsFiltered: " + elements);
+
+      // Atualize o dataSource do mat-accordion com os dados filtrados
+      this.dataService.setDados(elements);
+    });
+  }
+
+  limpaFiltros() {
+    this.filterData.initial = true;
+    this.filterData.cpfCnpj = "";
+    this.filterData.idRelatorio = "";
+    this.filterData.postalCode = "";
     console.log(this.filterData);
     const filteredData: Observable<PeriodicElement[]> =
       this.dataService.getDadosFiltrados(this.filterData);

@@ -9,11 +9,11 @@ import {
 import { HttpClient } from "@angular/common/http";
 
 class FilterData {
-  inicial: boolean = true;
   periodo: string = "";
   idRelatorio: string = "";
   postalCode: string = "";
   cpfCnpj: string = "";
+  initial: boolean = false;
 }
 export interface PeriodicElement {
   inspectionNumber: string;
@@ -61,7 +61,7 @@ export class ReportDetailsCollapseComponent {
     //this.dataSource = this.dadosService.getDados();
     //console.log(this.dataSource);
     const filtros: FilterData = new FilterData();
-    filtros.inicial = true;
+    filtros.initial = true;
     this.dadosService.getDadosFiltrados(filtros).subscribe((dados) => {
       this.dataSource = dados;
     });
