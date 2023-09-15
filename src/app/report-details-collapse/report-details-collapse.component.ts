@@ -1,18 +1,19 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { MatTableModule } from '@angular/material/table';
-import { DadosService } from '../shared/report-data.service';
+import { CommonModule } from "@angular/common";
+import { Component } from "@angular/core";
+import { MatTableModule } from "@angular/material/table";
+import { DadosService } from "../shared/report-data.service";
 import {
   MatExpansionModule,
   MatExpansionPanel,
-} from '@angular/material/expansion';
-import { HttpClient } from '@angular/common/http';
+} from "@angular/material/expansion";
+import { HttpClient } from "@angular/common/http";
 
 class FilterData {
-  periodo: string = '';
-  idRelatorio: string = '';
-  postalCode: string = '';
-  cpfCnpj: string = '';
+  inicial: boolean = true;
+  periodo: string = "";
+  idRelatorio: string = "";
+  postalCode: string = "";
+  cpfCnpj: string = "";
 }
 export interface PeriodicElement {
   inspectionNumber: string;
@@ -28,22 +29,22 @@ export interface PeriodicElement {
 }
 const ELEMENT_DATA: PeriodicElement[] = [
   {
-    inspectionNumber: '',
-    proponentCpfCnpj: '',
-    proponentName: '',
-    postalCode: '',
-    opinion: '',
-    addressComplement: '',
-    analystObservation: '',
-    reportPath: '',
+    inspectionNumber: "",
+    proponentCpfCnpj: "",
+    proponentName: "",
+    postalCode: "",
+    opinion: "",
+    addressComplement: "",
+    analystObservation: "",
+    reportPath: "",
     reportValidationDate: new Date(),
     reportReturnDate: new Date(),
   },
 ];
 @Component({
-  selector: 'app-report-details-collapse',
-  templateUrl: './report-details-collapse.component.html',
-  styleUrls: ['./report-details-collapse.component.css'],
+  selector: "app-report-details-collapse",
+  templateUrl: "./report-details-collapse.component.html",
+  styleUrls: ["./report-details-collapse.component.css"],
   imports: [MatTableModule, CommonModule, MatExpansionModule],
   standalone: true,
   viewProviders: [MatExpansionPanel],
@@ -59,9 +60,8 @@ export class ReportDetailsCollapseComponent {
     // No ngOnInit do modal, obtenha os dados do serviço de dados
     //this.dataSource = this.dadosService.getDados();
     //console.log(this.dataSource);
-
     const filtros: FilterData = new FilterData();
-
+    filtros.inicial = true;
     this.dadosService.getDadosFiltrados(filtros).subscribe((dados) => {
       this.dataSource = dados;
     });
@@ -73,16 +73,16 @@ export class ReportDetailsCollapseComponent {
   }
 
   modalDisplayedColumns: string[] = [
-    'inspectionNumber',
-    'proponentCpfCnpj',
-    'proponentName',
-    'postalCode',
-    'opinion',
-    'addressComplement',
-    'analystObservation',
-    'reportPath',
-    'reportValidationDate',
-    'reportReturnDate',
+    "inspectionNumber",
+    "proponentCpfCnpj",
+    "proponentName",
+    "postalCode",
+    "opinion",
+    "addressComplement",
+    "analystObservation",
+    "reportPath",
+    "reportValidationDate",
+    "reportReturnDate",
   ];
 
   downloadPDF(reportPath: string) {
@@ -91,18 +91,18 @@ export class ReportDetailsCollapseComponent {
 
     // Faz a chamada REST para baixar o PDF.
     this.http
-      .get(downloadUrl, { responseType: 'blob' })
+      .get(downloadUrl, { responseType: "blob" })
       .subscribe((response: Blob) => {
         // Cria um objeto Blob com o conteúdo do PDF.
-        const blob = new Blob([response], { type: 'application/pdf' });
+        const blob = new Blob([response], { type: "application/pdf" });
 
         // Cria uma URL temporária para o Blob.
         const url = window.URL.createObjectURL(blob);
 
         // Cria um elemento <a> para iniciar o download.
-        const a = document.createElement('a');
+        const a = document.createElement("a");
         a.href = url;
-        a.download = 'documento.pdf'; // Nome do arquivo PDF.
+        a.download = "documento.pdf"; // Nome do arquivo PDF.
         document.body.appendChild(a);
         a.click();
 
