@@ -86,8 +86,17 @@ export class ReportDetailsCollapseComponent {
   ];
 
   downloadPDF(reportPath: string) {
+    this.openPDF(reportPath);
+  }
+
+  openPDF(reportPath: string) {
+    reportPath = "/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
+    window.open(reportPath, "_blank");
+  }
+
+  downloadFilePDF(reportPath: string) {
     // Substitua 'your_backend_url' pelo URL do seu backend e 'your_api_endpoint' pelo endpoint apropriado.
-    const downloadUrl = `your_backend_url/your_api_endpoint/${reportPath}/download-pdf`;
+    const downloadUrl = "/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
 
     // Faz a chamada REST para baixar o PDF.
     this.http

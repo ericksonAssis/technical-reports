@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatTableModule } from '@angular/material/table';
-import { DadosService } from '../shared/report-data.service';
+import { Component } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { MatTableModule } from "@angular/material/table";
+import { DadosService } from "../shared/report-data.service";
 
 export interface PeriodicElement {
   inspectionNumber: string;
@@ -17,22 +17,22 @@ export interface PeriodicElement {
 }
 const ELEMENT_DATA: PeriodicElement[] = [
   {
-    inspectionNumber: '',
-    proponentCpfCnpj: '',
-    proponentName: '',
-    postalCode: '',
-    opinion: '',
-    addressComplement: '',
-    analystObservation: '',
-    reportPath: '',
+    inspectionNumber: "",
+    proponentCpfCnpj: "",
+    proponentName: "",
+    postalCode: "",
+    opinion: "",
+    addressComplement: "",
+    analystObservation: "",
+    reportPath: "",
     reportValidationDate: new Date(),
     reportReturnDate: new Date(),
   },
 ];
 @Component({
-  selector: 'app-report-details',
-  templateUrl: './report-details.component.html',
-  styleUrls: ['./report-details.component.css'],
+  selector: "app-report-details",
+  templateUrl: "./report-details.component.html",
+  styleUrls: ["./report-details.component.css"],
   imports: [MatTableModule, CommonModule],
   standalone: true,
 })
@@ -48,15 +48,15 @@ export class ReportDetailsComponent {
   }
 
   modalDisplayedColumns: string[] = [
-    'inspectionNumber',
-    'proponentCpfCnpj',
-    'proponentName',
-    'postalCode',
-    'opinion',
-    'addressComplement',
-    'analystObservation',
-    'reportPath',
-    'reportValidationDate',
-    'reportReturnDate',
+    "inspectionNumber",
+    "proponentCpfCnpj",
+    "proponentName",
+    "postalCode",
+    "opinion",
+    "addressComplement",
+    "analystObservation",
+    "reportPath",
+    "reportValidationDate",
+    "reportReturnDate",
   ];
 }
