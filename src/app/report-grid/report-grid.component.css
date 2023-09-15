@@ -1,0 +1,9 @@
+/* Estilo para a seta */
+.arrow-button {
+  color: #007bff; /* Cor da seta (pode ser personalizada) */
+}
+
+/* Estilo para os detalhes (inicialmente ocultos) */
+.hidden-details {
+  display: block;
+}

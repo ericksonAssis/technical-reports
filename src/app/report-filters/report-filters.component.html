@@ -1,0 +1,30 @@
+<!-- filter.component.html -->
+<div>
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Período de Data"
+      [(ngModel)]="filterData.periodo"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="ID do Relatório"
+      [(ngModel)]="filterData.idRelatorio"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Código Postal"
+      [(ngModel)]="filterData.postalCode"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="CPF/CNPJ" [(ngModel)]="filterData.cpfCnpj" />
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="aplicarFiltros()">
+    Aplicar Filtros
+  </button>
+</div>

@@ -1,0 +1,68 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="inspectionNumber">
+    <th mat-header-cell *matHeaderCellDef>No.</th>
+    <td mat-cell *matCellDef="let element">{{ element.inspectionNumber }}</td>
+  </ng-container>
+
+  <!-- Proponent CPF/CNPJ -->
+  <ng-container matColumnDef="proponentCpfCnpj">
+    <th mat-header-cell *matHeaderCellDef>Cpf/Cnpj</th>
+    <td mat-cell *matCellDef="let element">{{ element.proponentCpfCnpj }}</td>
+  </ng-container>
+
+  <!-- proponentName Column -->
+  <ng-container matColumnDef="proponentName">
+    <th mat-header-cell *matHeaderCellDef>proponentName</th>
+    <td mat-cell *matCellDef="let element">{{ element.proponentName }}</td>
+  </ng-container>
+
+  <!-- postalCode Column -->
+  <ng-container matColumnDef="postalCode">
+    <th mat-header-cell *matHeaderCellDef>postalCode</th>
+    <td mat-cell *matCellDef="let element">{{ element.postalCode }}</td>
+  </ng-container>
+
+  <!-- opinion Column -->
+  <ng-container matColumnDef="opinion">
+    <th mat-header-cell *matHeaderCellDef>opinion</th>
+    <td mat-cell *matCellDef="let element">{{ element.opinion }}</td>
+  </ng-container>
+
+  <!-- addressComplement Column -->
+  <ng-container matColumnDef="addressComplement">
+    <th mat-header-cell *matHeaderCellDef>addressComplement</th>
+    <td mat-cell *matCellDef="let element">{{ element.addressComplement }}</td>
+  </ng-container>
+  <!-- analystObservation Column -->
+  <ng-container matColumnDef="analystObservation">
+    <th mat-header-cell *matHeaderCellDef>analystObservation</th>
+    <td mat-cell *matCellDef="let element">{{ element.analystObservation }}</td>
+  </ng-container>
+  <!-- reportPath Column -->
+  <ng-container matColumnDef="reportPath">
+    <th mat-header-cell *matHeaderCellDef>reportPath</th>
+    <td mat-cell *matCellDef="let element">{{ element.reportPath }}</td>
+  </ng-container>
+
+  <!-- reportValidationDate Column -->
+  <ng-container matColumnDef="reportValidationDate">
+    <th mat-header-cell *matHeaderCellDef>reportValidationDate</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.reportValidationDate | date : "dd/MM/yyyy" }}
+    </td>
+  </ng-container>
+
+  <!-- reportReturnDate Column -->
+  <ng-container matColumnDef="reportReturnDate">
+    <th mat-header-cell *matHeaderCellDef>reportReturnDate</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.reportReturnDate | date : "dd/MM/yyyy" }}
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="modalDisplayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: modalDisplayedColumns"></tr>
+</table>

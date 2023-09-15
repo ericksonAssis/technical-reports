@@ -1,0 +1,27 @@
+<mat-accordion>
+  <mat-expansion-panel
+    class="custom-expansion-panel"
+    *ngFor="let item of dataSource"
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title> {{ item.inspectionNumber }} </mat-panel-title>
+      <mat-panel-title> {{ item.proponentCpfCnpj }} </mat-panel-title>
+      <mat-panel-title> {{ item.proponentName }} </mat-panel-title>
+      <mat-panel-title> {{ item.postalCode }} </mat-panel-title>
+      <mat-panel-title> {{ item.addressComplement }} </mat-panel-title>
+      <mat-panel-title> {{ item.analystObservation }} </mat-panel-title>
+      <mat-panel-title>
+        {{ item.reportValidationDate | date }}
+      </mat-panel-title>
+      <mat-panel-title>
+        {{ item.reportValidationDate | date }}
+      </mat-panel-title>
+      <mat-panel-title> {{ item.reportReturnDate | date }} </mat-panel-title>
+    </mat-expansion-panel-header>
+    <button mat-button (click)="downloadPDF(item.reportPath)">
+      Download PDF
+    </button>
+  </mat-expansion-panel>
+</mat-accordion>
