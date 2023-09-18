@@ -7,9 +7,11 @@ import {
   MatExpansionPanel,
 } from "@angular/material/expansion";
 import { HttpClient } from "@angular/common/http";
+import { DateFormatPipe } from "../shared/dateformat.pipe";
 
 class FilterData {
-  periodo: string = "";
+  dataInicio: Date = new Date();
+  dataFim: Date = new Date();
   idRelatorio: string = "";
   postalCode: string = "";
   cpfCnpj: string = "";
@@ -45,7 +47,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   selector: "app-report-details-collapse",
   templateUrl: "./report-details-collapse.component.html",
   styleUrls: ["./report-details-collapse.component.css"],
-  imports: [MatTableModule, CommonModule, MatExpansionModule],
+  imports: [MatTableModule, CommonModule, MatExpansionModule, DateFormatPipe],
   standalone: true,
   viewProviders: [MatExpansionPanel],
 })

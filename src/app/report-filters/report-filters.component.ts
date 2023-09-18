@@ -4,6 +4,8 @@ import { MatInputModule } from "@angular/material/input";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { DadosService } from "../shared/report-data.service";
 import { Observable } from "rxjs";
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatButtonModule } from "@angular/material/button";
 
 class PeriodicElement {
   inspectionNumber: string = "";
@@ -19,7 +21,8 @@ class PeriodicElement {
 }
 
 class FilterData {
-  periodo: string = "";
+  dataInicio: Date = new Date();
+  dataFim: Date = new Date();
   idRelatorio: string = "";
   postalCode: string = "";
   cpfCnpj: string = "";
@@ -30,7 +33,13 @@ class FilterData {
   selector: "app-report-filters",
   templateUrl: "./report-filters.component.html",
   styleUrls: ["./report-filters.component.css"],
-  imports: [FormsModule, MatFormFieldModule, MatInputModule],
+  imports: [
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatButtonModule,
+  ],
   standalone: true,
 })
 export class ReportFiltersComponent {

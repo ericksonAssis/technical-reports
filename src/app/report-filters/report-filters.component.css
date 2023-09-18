@@ -1,0 +1,10 @@
+.button-container {
+  display: inline-flexbox;
+  margin-left: 10px;
+  justify-content: center; /* Centraliza horizontalmente */
+  gap: 16px; /* Adiciona espaço entre os botões (altere o valor conforme necessário) */
+}
+
+.input-small {
+  width: 150px; /* Defina a largura desejada conforme necessário */
+}

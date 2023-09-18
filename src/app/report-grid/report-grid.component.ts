@@ -1,14 +1,14 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { MatTableModule } from '@angular/material/table';
-import { ReportModalService } from '../shared/report-modal.service';
+import { CommonModule } from "@angular/common";
+import { Component } from "@angular/core";
+import { MatTableModule } from "@angular/material/table";
+import { ReportModalService } from "../shared/report-modal.service";
 
 import {
   MatExpansionModule,
   MatExpansionPanel,
-} from '@angular/material/expansion';
-import { FormsModule } from '@angular/forms';
-import { DadosService } from '../shared/report-data.service';
+} from "@angular/material/expansion";
+import { FormsModule } from "@angular/forms";
+import { DadosService } from "../shared/report-data.service";
 
 export interface PeriodicElement {
   inspectionNumber: string;
@@ -25,23 +25,23 @@ export interface PeriodicElement {
 
 const ELEMENT_DATA: PeriodicElement[] = [
   {
-    inspectionNumber: '12345',
-    proponentCpfCnpj: '11.111.111.0001-11',
-    proponentName: 'Proponente Teste',
-    postalCode: '11111-111',
-    opinion: 'Opinion Teste',
-    addressComplement: 'Street Test',
-    analystObservation: 'Observation',
-    reportPath: '/data/bucket/a123s-5s123s-1as23-s564',
+    inspectionNumber: "12345",
+    proponentCpfCnpj: "11.111.111.0001-11",
+    proponentName: "Proponente Teste",
+    postalCode: "11111-111",
+    opinion: "Opinion Teste",
+    addressComplement: "Street Test",
+    analystObservation: "Observation",
+    reportPath: "/data/bucket/a123s-5s123s-1as23-s564",
     reportValidationDate: new Date(),
     reportReturnDate: new Date(),
   },
 ];
 
 @Component({
-  selector: 'app-report-grid',
-  templateUrl: './report-grid.component.html',
-  styleUrls: ['./report-grid.component.css'],
+  selector: "app-report-grid",
+  templateUrl: "./report-grid.component.html",
+  styleUrls: ["./report-grid.component.css"],
   standalone: true,
   viewProviders: [MatExpansionPanel],
   imports: [MatTableModule, CommonModule, MatExpansionModule, FormsModule],
@@ -57,17 +57,17 @@ export class ReportGridComponent {
     this.dadosService.setDados([item]);
   }
   displayedColumns: string[] = [
-    'inspectionNumber',
-    'proponentCpfCnpj',
-    'proponentName',
-    'postalCode',
-    'showDetails',
-    'opinion',
-    'addressComplement',
-    'analystObservation',
-    'reportPath',
-    'reportValidationDate',
-    'reportReturnDate',
+    "inspectionNumber",
+    "proponentCpfCnpj",
+    "proponentName",
+    "postalCode",
+    "showDetails",
+    "opinion",
+    "addressComplement",
+    "analystObservation",
+    "reportPath",
+    "reportValidationDate",
+    "reportReturnDate",
   ];
   dataSource = ELEMENT_DATA;
 }

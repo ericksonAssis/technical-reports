@@ -13,12 +13,14 @@
       <mat-panel-title> {{ item.addressComplement }} </mat-panel-title>
       <mat-panel-title> {{ item.analystObservation }} </mat-panel-title>
       <mat-panel-title>
-        {{ item.reportValidationDate | date }}
+        {{ item.reportValidationDate | dateFormat }}
       </mat-panel-title>
       <mat-panel-title>
-        {{ item.reportValidationDate | date }}
+        {{ item.reportValidationDate | dateFormat }}
       </mat-panel-title>
-      <mat-panel-title> {{ item.reportReturnDate | date }} </mat-panel-title>
+      <mat-panel-title>
+        {{ item.reportReturnDate | dateFormat }}
+      </mat-panel-title>
     </mat-expansion-panel-header>
     <button mat-button (click)="downloadPDF(item.reportPath)">
       Download PDF
